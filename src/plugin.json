@@ -1,0 +1,21 @@
+{
+    "type": "panel",
+    "name": "Example React Panel",
+    "id": "react-panel",
+    "info": {
+        "description": "this is just a test with react",
+        "author": {
+            "name": "NERSESIAN Robert",
+            "url": "https://beebryte.com"
+        },
+        "keywords": ["React Panel"],
+        "links": [],
+        "screenshots": [],
+        "version": "0.0.1",
+        "updated": "2019-03-21"
+    },
+    "dependencies": {
+        "grafanaVersion": "6.x.x",
+        "plugins": []
+    }
+}
