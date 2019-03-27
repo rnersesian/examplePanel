@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import {
     NullValueMode,
+    processTimeSeries,
     PanelProps,
     ThemeContext,
 } from "@grafana/ui";
@@ -19,25 +20,37 @@ export class ExamplePanel extends PureComponent<Props> {
             options,
             width,
             height,
+            panelData,
+            timeRange
         } = this.props;
  
+        if(panelData.timeSeries) {
+            const timeSeries = processTimeSeries({
+                timeSeries: panelData.timeSeries,
+                nullValueMode: NullValueMode.Null,
+              });
         
-        return (
-            <ThemeContext.Consumer>
-                {
-                    theme => {
-                        return(
-                            <TextLayout
-                            width={width}
-                            height={height}
-                            options={options}
-                            onInterpolate={onInterpolate}
-                            theme={theme}
-                            />
-                        );
+        
+            return (
+                <ThemeContext.Consumer>
+                    {
+                        theme => {
+                            return(
+                                <TextLayout
+                                timeRange={timeRange}
+                                timeSeries={timeSeries}
+                                width={width}
+                                height={height}
+                                options={options}
+                                onInterpolate={onInterpolate}
+                                theme={theme}
+                                />
+                            );
+                        }
                     }
-                }
-            </ThemeContext.Consumer>
-        );
+                </ThemeContext.Consumer>
+                
+            );
+        }
     }
 }

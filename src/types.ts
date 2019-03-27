@@ -1,5 +1,7 @@
 import {
     GrafanaTheme,
+    TimeRange,
+    TimeSeriesVMs
 } from "@grafana/ui";
 
 export interface ExampleOptions{
@@ -22,4 +24,6 @@ export interface LayoutProps {
     options: ExampleOptions;
     onInterpolate: (value: string, format?: string) => string;
     theme: GrafanaTheme;
+    timeSeries: TimeSeriesVMs;
+    timeRange: TimeRange;
 }

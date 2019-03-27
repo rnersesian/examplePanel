@@ -11,10 +11,12 @@ export class TextLayout extends PureComponent<Props> {
     render () {
         const {
             options,
-            theme
+            theme,
+            timeSeries,
+            timeRange,
         } = this.props;
 
-
+        console.log(timeSeries);
         let value = options.valueOptions.text;
         return(
             <div 
